@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pwd manager</title>
+
+        <script>
+            let lgnArray = new Map([
+                ['t00r', 'r00t'],
+                ['AdMiN', 'AdMiN']
+            ]);
+
+            function lgnIn()
+            {
+                const lgn = form1.lgnMemory;
+                const pwd = form1.pwdMemory;
+
+                console.log(`lgn: ${lgn.value}`);
+                console.log(`Hasło: ${pwd.value}`);
+
+                if(!lgnArray.has(lgn.value) || lgnArray.get(lgn.value) != pwd.value) {
+                    alert("WRONG!");
+                } else {
+                    document.location.href = "1.html";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="panel">
+            <h2>Login Panel:</h2>
+
+            <form id="form1" onSubmit="return false;">
+                <fieldset>
+                    <input type="text" id="lgnMemory" placeholder="your login goes here">
+                    <input type="password" id="pwdMemory" placeholder="your password goes here">
+
+                    <button id="sbmt-bt" onClick="lgnIn()">Check my data</button>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
